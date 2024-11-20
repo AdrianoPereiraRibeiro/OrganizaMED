@@ -1,6 +1,0 @@
-@OrganizaMEDServer_HostAddress = http://localhost:5182
-
-GET {{OrganizaMEDServer_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
