@@ -18,7 +18,7 @@ namespace OrganizaMED.Dominio.ModuloConsulta
             RuleFor(x => x.Duracao).NotEmpty().NotNull().GreaterThan(0)
                 .WithMessage("A duração não deve ser igual ou menor do que 0.");
 
-            RuleFor(x => x.Data).NotEmpty().WithMessage("A data de inicio é obrigatória");
+            RuleFor(x => x.DataDeInicio).NotEmpty().WithMessage("A data de inicio é obrigatória");
         }
     }
 }

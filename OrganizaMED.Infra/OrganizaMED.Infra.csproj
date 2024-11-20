@@ -16,10 +16,4 @@
     <ProjectReference Include="..\OrganizaMED.Dominio\OrganizaMED.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ModuloCirugia\" />
-    <Folder Include="ModuloConsulta\" />
-    <Folder Include="ModuloMedico\" />
-  </ItemGroup>
-
 </Project>

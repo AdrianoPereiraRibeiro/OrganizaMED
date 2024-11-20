@@ -13,16 +13,16 @@ namespace OrganizaMED.Dominio.ModuloConsulta
         public DateTime DataDeEncerramento { get; set; }
         public int Duracao { get; set; }
         public Medico Medico { get; set; }
-
+        public Guid MedicoId { get; set; }
 
 
         public Consulta() { }
-        public Consulta(DateTime dataDeInicio, int duracao, Medico medico)
+        public Consulta(DateTime dataDeInicio, int duracao, Guid medicoId)
         {
             DataDeInicio = dataDeInicio;
             DataDeEncerramento = dataDeInicio.AddMinutes(Duracao);
             Duracao = duracao;
-            Medico = medico;
+            MedicoId = medicoId;
         }
     }
 }

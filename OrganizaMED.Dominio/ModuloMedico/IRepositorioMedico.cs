@@ -8,7 +8,7 @@ using OrganizaMED.Dominio.ModuloCirugia;
 
 namespace OrganizaMED.Dominio.ModuloMedico
 {
-    public interface IRespositorioMedico : IRepositorioBase<Medico>
+    public interface IRepositorioMedico : IRepositorioBase<Medico>
     {
     }
     
