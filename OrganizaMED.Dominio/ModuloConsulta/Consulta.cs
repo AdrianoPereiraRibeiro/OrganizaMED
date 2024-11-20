@@ -9,17 +9,18 @@ namespace OrganizaMED.Dominio.ModuloConsulta
 {
     public class Consulta : Entidade
     {
-        public DateTime Data { get; set; }
+        public DateTime DataDeInicio { get; set; }
+        public DateTime DataDeEncerramento { get; set; }
         public int Duracao { get; set; }
         public Medico Medico { get; set; }
 
-        public Consulta()
+
+
+        public Consulta() { }
+        public Consulta(DateTime dataDeInicio, int duracao, Medico medico)
         {
-            
-        }
-        public Consulta(DateTime data, int duracao, Medico medico)
-        {
-            Data = data;
+            DataDeInicio = dataDeInicio;
+            DataDeEncerramento = dataDeInicio.AddMinutes(Duracao);
             Duracao = duracao;
             Medico = medico;
         }
