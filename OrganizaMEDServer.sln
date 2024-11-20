@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMEDServer", "OrganizaMEDServer\OrganizaMEDServer.csproj", "{DA1C597B-CBC1-4688-990C-E788AFE2D694}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Distribuição", "1-Distribuição", "{EDD1C3F6-1BA5-4692-80CE-9D5FC0B3DA69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Aplicação", "2-Aplicação", "{4571C6DD-308D-4C34-A9AF-EDCD5AD883D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domínio", "3-Domínio", "{0F96A7A9-D7C7-4CD7-A1D1-A51E0F95AA86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{54EDBBD8-5CFD-479B-A328-4DFB6E13613C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Aplicacao", "OrganizaMED.Aplicacao\OrganizaMED.Aplicacao.csproj", "{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Dominio", "OrganizaMED.Dominio\OrganizaMED.Dominio.csproj", "{A8A3E464-9556-4C57-A914-DC2FF0627F03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Infra", "OrganizaMED.Infra\OrganizaMED.Infra.csproj", "{494C2074-7290-4A04-BEE6-E96859210634}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA1C597B-CBC1-4688-990C-E788AFE2D694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1C597B-CBC1-4688-990C-E788AFE2D694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1C597B-CBC1-4688-990C-E788AFE2D694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1C597B-CBC1-4688-990C-E788AFE2D694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A3E464-9556-4C57-A914-DC2FF0627F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A3E464-9556-4C57-A914-DC2FF0627F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A3E464-9556-4C57-A914-DC2FF0627F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A3E464-9556-4C57-A914-DC2FF0627F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{494C2074-7290-4A04-BEE6-E96859210634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{494C2074-7290-4A04-BEE6-E96859210634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{494C2074-7290-4A04-BEE6-E96859210634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{494C2074-7290-4A04-BEE6-E96859210634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA1C597B-CBC1-4688-990C-E788AFE2D694} = {EDD1C3F6-1BA5-4692-80CE-9D5FC0B3DA69}
+		{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36} = {4571C6DD-308D-4C34-A9AF-EDCD5AD883D3}
+		{A8A3E464-9556-4C57-A914-DC2FF0627F03} = {0F96A7A9-D7C7-4CD7-A1D1-A51E0F95AA86}
+		{494C2074-7290-4A04-BEE6-E96859210634} = {54EDBBD8-5CFD-479B-A328-4DFB6E13613C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5C12552-6791-4A42-8A11-78739AAFEA9A}
+	EndGlobalSection
+EndGlobal
