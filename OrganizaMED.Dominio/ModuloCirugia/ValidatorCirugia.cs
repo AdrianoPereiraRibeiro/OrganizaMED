@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace OrganizaMED.Dominio.ModuloCirugia
 {
-    public class ValidadorCirugia : AbstractValidator<Cirugia>
+    public class ValidatorCirugia : AbstractValidator<Cirugia>
     {
-        public ValidadorCirugia()
+        public ValidatorCirugia()
         {
             RuleFor(x => x.Medicos)
                 .NotEmpty().WithMessage("O médico é obrigatório");
