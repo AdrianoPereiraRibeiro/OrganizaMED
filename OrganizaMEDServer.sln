@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMEDServer", "OrganizaMEDServer\OrganizaMEDServer.csproj", "{DA1C597B-CBC1-4688-990C-E788AFE2D694}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrganizaMEDServer", "OrganizaMEDServer\OrganizaMEDServer.csproj", "{DA1C597B-CBC1-4688-990C-E788AFE2D694}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Distribuição", "1-Distribuição", "{EDD1C3F6-1BA5-4692-80CE-9D5FC0B3DA69}"
 EndProject
@@ -13,11 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domínio", "3-Domínio", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{54EDBBD8-5CFD-479B-A328-4DFB6E13613C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Aplicacao", "OrganizaMED.Aplicacao\OrganizaMED.Aplicacao.csproj", "{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrganizaMED.Aplicacao", "OrganizaMED.Aplicacao\OrganizaMED.Aplicacao.csproj", "{D39C93BD-CDBE-4C56-8D79-1A8D6D2B3A36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Dominio", "OrganizaMED.Dominio\OrganizaMED.Dominio.csproj", "{A8A3E464-9556-4C57-A914-DC2FF0627F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrganizaMED.Dominio", "OrganizaMED.Dominio\OrganizaMED.Dominio.csproj", "{A8A3E464-9556-4C57-A914-DC2FF0627F03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaMED.Infra", "OrganizaMED.Infra\OrganizaMED.Infra.csproj", "{494C2074-7290-4A04-BEE6-E96859210634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrganizaMED.Infra", "OrganizaMED.Infra\OrganizaMED.Infra.csproj", "{494C2074-7290-4A04-BEE6-E96859210634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

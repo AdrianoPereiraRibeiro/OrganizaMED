@@ -11,6 +11,6 @@ namespace OrganizaMED.Dominio.ModuloMedico
     {
         public string Nome { get; set; }
         public string CRM { get; set; }
-        public List<DateTime> Agenda { get; set; }
+        public List<DateTime>? Agenda { get; set; }
     }
 }

@@ -12,12 +12,6 @@ namespace OrganizaMED.WebApi.Config
                 .Enrich.WithMachineName()
                 .Enrich.WithThreadId()
                 .WriteTo.Console()
-                //.WriteTo.NewRelicLogs(
-                //    endpointUrl: "https://log-api.newrelic.com/log/v1",
-                //    applicationName: "note-keeper-api",
-                //    licenseKey: ""
-
-                //    )
                 .CreateLogger();
 
             logging.ClearProviders();
