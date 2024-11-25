@@ -21,7 +21,7 @@ namespace OrganizaMED.Aplicacao.ModuloConsulta
 
         public async Task<Result<Consulta>> InserirAsync(Consulta Consulta)
         {
-            var validador = new ValidatorMedico();
+            var validador = new ValidatorConsulta();
 
 
             ValidationResult resultadoValidacao = await validador.ValidateAsync(Consulta);
@@ -39,7 +39,7 @@ namespace OrganizaMED.Aplicacao.ModuloConsulta
 
         public async Task<Result<Consulta>> EditarAsync(Consulta Consulta)
         {
-            var validador = new ValidatorMedico();
+            var validador = new ValidatorConsulta();
 
 
             ValidationResult resultadoValidacao = await validador.ValidateAsync(Consulta);
