@@ -1,9 +1,19 @@
 
 using Microsoft.EntityFrameworkCore;
+using OrganizaMED.Aplicacao.ModuloCirugia;
+using OrganizaMED.Aplicacao.ModuloConsulta;
+using OrganizaMED.Aplicacao.ModuloMedico;
 using OrganizaMED.Dominio.Compartilhado;
+using OrganizaMED.Dominio.ModuloCirugia;
+using OrganizaMED.Dominio.ModuloConsulta;
+using OrganizaMED.Dominio.ModuloMedico;
+using OrganizaMED.Infra.ModuloCirugia;
+using OrganizaMED.Infra.ModuloConsulta;
+using OrganizaMED.Infra.ModuloMedico;
 using OrganizaMED.Infra.Orm.Compartilhado;
 using OrganizaMED.WebApi.Config;
 using OrganizaMED.WebApi.Filters;
+using OrganizaMEDServer.Config.Mapping;
 using Serilog;
 
 namespace OrganizaMEDServer
@@ -22,16 +32,20 @@ namespace OrganizaMEDServer
                 optionsBuilder.UseSqlServer(connectionString);
             });
 
-            //builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaOrm>();
-            //builder.Services.AddScoped<ServicoCategoria>();
+            builder.Services.AddScoped<IRepositorioMedico, RepositorioMedicoOrm>();
+            builder.Services.AddScoped<ServiceMedico>();
+            builder.Services.AddScoped<IRepositorioConsulta, RepositorioConsultaOrm>();
+            builder.Services.AddScoped<ServiceConsulta>();
+            builder.Services.AddScoped<IRepositorioCirugia, RepositorioCirugiaOrm>();
+            builder.Services.AddScoped<ServiceCirugia>();
 
-            //builder.Services.AddScoped<IRepositorioNota, RepositorioNotaOrm>();
-            //builder.Services.AddScoped<ServicoNota>();
+        ;
 
             builder.Services.AddAutoMapper(config =>
             {
-                //config.AddProfile<CategoriaProfile>();
-                //config.AddProfile<NotaProfile>();
+                config.AddProfile<MedicoProfile>();
+                config.AddProfile<ConsultaProfile>();
+                config.AddProfile<CirugiaProfile>();
             });
 
             builder.Services.AddControllers(options =>

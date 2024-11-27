@@ -24,5 +24,10 @@ namespace OrganizaMED.Dominio.ModuloConsulta
             Duracao = duracao;
             MedicoId = medicoId;
         }
+
+        public void AtualizarTermino()
+        {
+            DataDeEncerramento = DataDeInicio.AddMinutes(Duracao);
+        }
     }
 }

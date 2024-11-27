@@ -16,4 +16,8 @@
     <ProjectReference Include="..\OrganizaMED.Dominio\OrganizaMED.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

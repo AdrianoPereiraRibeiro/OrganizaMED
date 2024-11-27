@@ -25,8 +25,7 @@ namespace OrganizaMED.Infra.ModuloMedico
             builder.Property(x => x.CRM)
                 .IsRequired();
 
-            builder.Property(x => x.Agenda)
-                .IsRequired();
+            builder.Property(x => x.Agenda);
 
         }
     }

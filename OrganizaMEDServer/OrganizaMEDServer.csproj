@@ -24,10 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\OrganizaMED.Aplicacao\OrganizaMED.Aplicacao.csproj" />
     <ProjectReference Include="..\OrganizaMED.Dominio\OrganizaMED.Dominio.csproj" />
     <ProjectReference Include="..\OrganizaMED.Infra\OrganizaMED.Infra.csproj" />
   </ItemGroup>

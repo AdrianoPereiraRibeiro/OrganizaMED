@@ -13,14 +13,19 @@ namespace OrganizaMED.Aplicacao.ModuloConsulta
     public class ServiceConsulta
     {
         private readonly IRepositorioConsulta _repositorioConsulta;
+        private readonly IRepositorioMedico _repositorioMedico;
 
-        public ServiceConsulta(IRepositorioConsulta repositorioConsulta)
+        public ServiceConsulta(IRepositorioConsulta repositorioConsulta,IRepositorioMedico repositorioMedico)
         {
             _repositorioConsulta = repositorioConsulta;
+            _repositorioMedico = repositorioMedico;
         }
 
         public async Task<Result<Consulta>> InserirAsync(Consulta Consulta)
         {
+            
+            Consulta.Medico = _repositorioMedico.SelecionarPorId(Consulta.MedicoId);
+            Consulta.AtualizarTermino();
             var validador = new ValidatorConsulta();
 
 

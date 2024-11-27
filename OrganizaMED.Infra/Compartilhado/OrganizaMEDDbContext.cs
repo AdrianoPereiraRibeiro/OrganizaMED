@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OrganizaMED.Dominio.Compartilhado;
+using OrganizaMED.Infra.ModuloCirugia;
+using OrganizaMED.Infra.ModuloConsulta;
+using OrganizaMED.Infra.ModuloMedico;
 
 
 namespace OrganizaMED.Infra.Orm.Compartilhado
@@ -18,9 +21,10 @@ namespace OrganizaMED.Infra.Orm.Compartilhado
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new MapeadorCategoriaOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorMedicoOrm());
 
-            //modelBuilder.ApplyConfiguration(new MapeadorNotaOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorConsultaOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorCirugiaOrm());
 
             base.OnModelCreating(modelBuilder);
         }

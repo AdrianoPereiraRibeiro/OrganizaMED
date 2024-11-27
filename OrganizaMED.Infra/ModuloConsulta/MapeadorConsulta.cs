@@ -23,9 +23,10 @@ namespace OrganizaMED.Infra.ModuloConsulta
                 .IsRequired();
 
             builder.HasOne(x => x.Medico)
-                .WithOne()
-                .HasForeignKey<Consulta>(x => x.MedicoId)
+                .WithMany()
+                .HasForeignKey(x => x.MedicoId)
                 .HasConstraintName("FK_TBMedico_TBConsulta");
+            
 
             builder.Property(x => x.DataDeInicio)
                 .IsRequired();
