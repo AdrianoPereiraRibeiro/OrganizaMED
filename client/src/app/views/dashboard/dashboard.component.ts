@@ -18,6 +18,6 @@ export class DashboardComponent {
 itensRedirect: ItemRedirectDashboard[] = [
 { rota: '/medicos', texto: 'Medicos', icone: 'people' },
 { rota: '/consultas', texto: 'Consultas', icone: 'event' },
-{ rota: '/cirugias', texto: 'Cirugias', icone: 'currency_exchange' },
+{ rota: '/cirugias', texto: 'Cirugias', icone: 'person_add' },
 ];
 }

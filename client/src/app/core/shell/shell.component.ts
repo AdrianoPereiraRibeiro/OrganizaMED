@@ -31,21 +31,27 @@ styleUrl: './shell.component.scss',
 })
 export class ShellComponent {
 links: LinkNavegacao[] = [
+  {
+    titulo: 'Dashboard',
+    icone: 'home',
+    rota: '/dashboard',
+    },
 {
-titulo: 'Login',
-icone: 'login',
-rota: '/login',
+titulo: 'Médicos',
+icone: 'people',
+rota: '/medicos',
 },
 {
-titulo: 'Registro',
+titulo: 'Cirugias',
 icone: 'person_add',
-rota: '/registro',
+rota: '/cirugias',
 },
 {
-titulo: 'Dashboard',
-icone: 'home',
-rota: '/dashboard',
-},
+  titulo: 'Consultas',
+  icone: 'event',
+  rota: '/consultas',
+  },
+
 ];
 isHandset$: Observable<boolean>;
 constructor(private breakpointObserver: BreakpointObserver) {
