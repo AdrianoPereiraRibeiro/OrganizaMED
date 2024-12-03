@@ -1,0 +1,40 @@
+<main class="container my-5">
+  <div class="row justify-content-center g-3 mt-2">
+    <div class="col col-md-10 col-lg-6">
+      <h1 class="display-3">Cadastro de Medico</h1>
+      <hr />
+      <form [formGroup]="medicoForm" (submit)="cadastrar()">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input
+            formControlName="nome"
+            matInput
+            placeholder="Ex: Adriano"
+          />
+          <mat-icon matSuffix color="primary">title</mat-icon>
+          <mat-error *ngIf="nome?.invalid">O nome é obrigatório</mat-error>
+        </mat-form-field>
+
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>CRM</mat-label>
+            <input
+              formControlName="crm"
+              matInput
+              placeholder="Ex: 12313-SC"
+            />
+            <mat-icon matSuffix color="primary">title</mat-icon>
+            <mat-error *ngIf="crm?.invalid">A crm é obrigatória</mat-error>
+          </mat-form-field>
+
+
+
+        <div class="row justify-content-end g-2 gap-2 mt-3">
+          <button type="submit" mat-flat-button class="col-sm-4" >
+            <mat-icon matIconPrefix>check</mat-icon>
+            Gravar
+          </button>
+          <a mat-button type="button" class="col-sm-4" routerLink="/medicos">
+            <mat-icon matIconPrefix>keyboard_return</mat-icon>
+            Voltar
+          </a>
+        </div>

@@ -32,6 +32,8 @@ namespace OrganizaMEDServer
                 optionsBuilder.UseSqlServer(connectionString);
             });
 
+            builder.Services.AddCors(options => { options.AddPolicy("AllowAll", builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }); });
+
             builder.Services.AddScoped<IRepositorioMedico, RepositorioMedicoOrm>();
             builder.Services.AddScoped<ServiceMedico>();
             builder.Services.AddScoped<IRepositorioConsulta, RepositorioConsultaOrm>();
@@ -39,7 +41,7 @@ namespace OrganizaMEDServer
             builder.Services.AddScoped<IRepositorioCirugia, RepositorioCirugiaOrm>();
             builder.Services.AddScoped<ServiceCirugia>();
 
-        ;
+        
 
             builder.Services.AddAutoMapper(config =>
             {
@@ -74,6 +76,7 @@ namespace OrganizaMEDServer
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseCors("AllowAll");
 
             app.MapControllers();
 
