@@ -10,6 +10,9 @@ import { CadastroconsultaComponent } from './views/consultas/cadastrar/cadastro-
 import { EditarConsultaComponent } from './views/consultas/editar/edicao-consulta.component';
 import { ListagemcirugiasComponent } from './views/cirugias/listar/listagem-cirugias.component';
 import { CadastroCirugiaComponent } from './views/cirugias/cadastrar/cadastro-cirugia.component';
+import { EdicaoCirugiaComponent } from './views/cirugias/editar/edicao-cirugia.component';
+import { ExclusaocirugiaComponent } from './views/cirugias/excluir/exclusao-cirugia.component';
+import { VisualizarCirugiaComponent } from './views/cirugias/visualizar/visualizar-cirugias.component';
 export const routes: Routes = [
    { path: '', redirectTo: 'dashboard',
      pathMatch: 'full' },
@@ -31,8 +34,9 @@ export const routes: Routes = [
       {path : `cirugias`, component: ListagemcirugiasComponent},
 
       {path : 'cirugias/cadastrar', component: CadastroCirugiaComponent },
-      // {path : 'cirugias/excluir/:id', component: ExclusaoConsultaComponent },
-      // {path : 'cirugias/editar/:id', component: EditarConsultaComponent }
+      {path : 'cirugias/excluir/:id', component: ExclusaocirugiaComponent },
+      {path : 'cirugias/editar/:id', component: EdicaoCirugiaComponent },
+      {path : 'cirugias/visualizar/:id', component: VisualizarCirugiaComponent }
  ];
 
 

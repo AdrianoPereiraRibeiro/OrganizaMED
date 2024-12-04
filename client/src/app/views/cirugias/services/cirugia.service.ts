@@ -30,7 +30,7 @@ export class CirugiaService {
     return this.http.post<CirugiaCriadoViewModel>(this.url, novoCirugia);
   }
 
-private readonly url = `${environment.apiUrl}/Cirugias`;
+private readonly url = `${environment.apiUrl}/cirugias`;
   constructor(private http: HttpClient) { }
 
 

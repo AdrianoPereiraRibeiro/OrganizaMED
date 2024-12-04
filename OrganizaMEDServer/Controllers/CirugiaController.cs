@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OrganizaMED.Aplicacao.ModuloCirugia;
 using OrganizaMED.Aplicacao.ModuloCirugia;
+using OrganizaMED.Aplicacao.ModuloMedico;
 using OrganizaMED.Dominio.ModuloCirugia;
 using OrganizaMEDServer.Views;
 using Serilog;
@@ -13,13 +14,15 @@ namespace OrganizaMEDServer.Controllers
     public class CirugiaController : ControllerBase
     {
         private readonly ServiceCirugia servicoCirugia;
+        private readonly ServiceMedico serviceMedico;
         private readonly IMapper mapeador;
 
 
-        public CirugiaController(ServiceCirugia servicoCirugia, IMapper mapeador)
+        public CirugiaController(ServiceCirugia servicoCirugia, IMapper mapeador,ServiceMedico serviceMedico)
         {
             this.servicoCirugia = servicoCirugia;
             this.mapeador = mapeador;
+            this.serviceMedico = serviceMedico;
         }
 
         [HttpGet]
@@ -63,7 +66,7 @@ namespace OrganizaMEDServer.Controllers
         {
             var Cirugia = mapeador.Map<Cirugia>(CirugiaVm);
             Cirugia.atualizarTermino();
-            Cirugia.prencherMedicos(CirugiaVm.MedicosIds);
+            Cirugia.prencherMedicos(CirugiaVm.MedicosIds,serviceMedico.SelecionarTodosAsync().Result.Value);
             var resultado = await servicoCirugia.InserirAsync(Cirugia);
 
             if (resultado.IsFailed)
@@ -84,6 +87,7 @@ namespace OrganizaMEDServer.Controllers
 
             var CirugiaEditada = mapeador.Map(CirugiaVm, selecaoCirugiasOriginal.Value);
             CirugiaEditada.atualizarTermino();
+            CirugiaEditada.prencherMedicos(CirugiaVm.MedicosIds, serviceMedico.SelecionarTodosAsync().Result.Value);
             var edicaoResult = await servicoCirugia.EditarAsync(CirugiaEditada);
             if (edicaoResult.IsFailed)
             {

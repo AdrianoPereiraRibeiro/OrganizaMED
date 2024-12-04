@@ -1,9 +1,9 @@
 <main class="container my-5">
   <div class="row justify-content-center g-3 mt-2">
     <div class="col col-md-10 col-lg-6">
-      <h1 class="display-3">Cadastro de Consulta</h1>
+      <h1 class="display-3">Cadastro de Cirurgia</h1>
       <hr />
-      <form [formGroup]="consultaForm" (ngSubmit)="editar()">
+      <form [formGroup]="cirugiaForm" (ngSubmit)="editar()">
         <mat-form-field class="w-100" appearance="fill">
           <mat-label>Data e Hora de Início</mat-label>
           <input formControlName="dataInicio" matInput type="datetime-local" placeholder="Selecione a data e a hora" />
@@ -17,19 +17,21 @@
         </mat-form-field>
 
         <mat-form-field class="w-100" appearance="fill">
-           <mat-label>Médico</mat-label>
-           <mat-select formControlName="medicoId">
-             <mat-option *ngFor="let medico of medicos" [value]="medico.id"> {{ medico.nome }} </mat-option>
-            </mat-select> <mat-error *ngIf="medicoId?.invalid && medicoId?.touched">O ID do médico é obrigatório</mat-error>
-          </mat-form-field>
-
+          <mat-label>Médicos</mat-label>
+          <mat-select formControlName="medicoIds" multiple>
+            <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+              {{ medico.nome }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="medicoIds?.invalid && medicoIds?.touched">Selecionar pelo menos um médico é obrigatório</mat-error>
+        </mat-form-field>
 
         <div class="row justify-content-end g-2 gap-2 mt-3">
           <button type="submit" mat-flat-button class="col-sm-4">
             <mat-icon>check</mat-icon>
             Gravar
           </button>
-          <a mat-button type="button" class="col-sm-4" routerLink="/consultas">
+          <a mat-button type="button" class="col-sm-4" routerLink="/cirugias">
             <mat-icon>keyboard_return</mat-icon>
             Voltar
           </a>

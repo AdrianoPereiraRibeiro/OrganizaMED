@@ -6,7 +6,7 @@ namespace OrganizaMEDServer.Views
     {
         public required string DataInicio { get; set; }
         public required int Duracao { get; set; }
-        public string[] MedicosIds { get; set; }
+        public IEnumerable<Guid> MedicosIds { get; set; }
     }
 
     public class SelectListItem
@@ -19,8 +19,8 @@ namespace OrganizaMEDServer.Views
         {
             public required string DataInicio { get; set; }
             public required int Duracao { get; set; }
-            public IEnumerable<SelectListItem>? Medicos { get; set; }
-        }
+            public IEnumerable<Guid> MedicosIds { get; set; }
+    }
 
         public class ListarCirugiaViewModel
         {

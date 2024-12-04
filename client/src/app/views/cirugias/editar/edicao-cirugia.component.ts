@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MedicoService } from '../../medicos/services/medico.service';
@@ -13,10 +13,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { Observable } from 'rxjs';
 import { ListarMedicosViewModel } from '../../medicos/models/models/medico.models';
 import { CirugiaService } from '../services/cirugia.service';
-import { InserirCirugiaViewModel, SelectListItem } from '../models/models/cirugia.models';
+import { EditarCirugiaViewModel, InserirCirugiaViewModel, SelectListItem, VisualizarCirugiaViewModel } from '../models/models/cirugia.models';
+import { EditarConsultaViewModel } from '../../consultas/models/models/consulta.models';
 
 @Component({
-  selector: 'app-cadastro-cirugia',
+  selector: 'app-edicao-cirugia',
   standalone: true,
   imports: [
     NgIf,
@@ -32,14 +33,16 @@ import { InserirCirugiaViewModel, SelectListItem } from '../models/models/cirugi
     MatOptionModule,
     CommonModule
   ],
-  templateUrl: './cadastro-cirugia.component.html',
+  templateUrl: './edicao-cirugia.component.html',
 })
 
-export class CadastroCirugiaComponent implements OnInit {
+export class EdicaoCirugiaComponent implements OnInit {
+  id? : string;
   cirugiaForm: FormGroup;
   medicos: SelectListItem[] = [];
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private cirugiaService: CirugiaService,
     private medicoService: MedicoService
@@ -53,6 +56,11 @@ export class CadastroCirugiaComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregarMedicos();
+    this.id = this.route.snapshot.params['id'];
+
+    this.cirugiaService
+      .selecionarPorId(this.id)
+      .subscribe((res) => this.carregarFormulario(res));
   }
 
   get dataInicio() {
@@ -67,19 +75,30 @@ export class CadastroCirugiaComponent implements OnInit {
     return this.cirugiaForm.get('medicoIds');
   }
 
+
+
+
   carregarMedicos(): void {
     this.medicoService.selecionarTodos().subscribe((data) => {
       this.medicos = data.map((medico: any) => ({ nome: medico.nome, id: medico.id }));
     });
   }
 
-  cadastrar() {
-    const novacirugia: InserirCirugiaViewModel =
-    { dataInicio: this.cirugiaForm.value.dataInicio,
-      duracao: this.cirugiaForm.value.duracao,
-      medicosIds: this.cirugiaForm.value.medicoIds
-    }
-    this.cirugiaService.cadastrar(novacirugia).subscribe((res) => {
+  editar() {
+
+    const cirugiaEditada: EditarCirugiaViewModel =  {
+      id: this.cirugiaForm.value.id,
+      dataInicio: this.cirugiaForm.value.dataInicio,
+       duracao: this.cirugiaForm.value.duracao,
+        medicosIds: this.cirugiaForm.value.medicoIds
+       };
+
+    this.cirugiaService.editar(this.id, cirugiaEditada).subscribe((res) => {
       this.router.navigate(['/cirugias']);
     });
-  } }
+  }
+
+  private carregarFormulario(registro: VisualizarCirugiaViewModel) {
+    this.cirugiaForm.patchValue(registro);
+  }
+}

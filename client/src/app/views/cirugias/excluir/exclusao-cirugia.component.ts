@@ -4,35 +4,34 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ConsultaService } from '../services/consulta.service';
-import { VisualizarDetalhesConsulta } from '../models/models/consulta.models';
-
+import { VisualizarCirugiaViewModel } from '../models/models/cirugia.models';
+import { CirugiaService } from '../services/cirugia.service';
 
 @Component({
-  selector: 'app-exclusao-Consulta',
+  selector: 'app-exclusao-cirugia',
   standalone: true,
   imports: [NgIf, RouterLink, AsyncPipe, MatButtonModule, MatIconModule],
-  templateUrl: './exclusao-consulta.component.html'
+  templateUrl: './exclusao-cirugias.component.html'
 })
-export class ExclusaoConsultaComponent implements OnInit {
+export class ExclusaocirugiaComponent implements OnInit {
   id?: string;
-  consulta$?: Observable<VisualizarDetalhesConsulta>;
+  cirugia$?: Observable<VisualizarCirugiaViewModel>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private consultaService: ConsultaService,
+    private cirugiaService: CirugiaService,
   ) {}
 
   ngOnInit(): void {
      this.id = this.route.snapshot.params['id'];
-    this.consulta$ = this.consultaService.selecionarPorId(this.id);
+    this.cirugia$ = this.cirugiaService.selecionarPorId(this.id);
   }
 
   excluir() {
 
-    this.consultaService.excluir(this.id).subscribe((res) => {
-      this.router.navigate(['/consultas']);
+    this.cirugiaService.excluir(this.id).subscribe((res) => {
+      this.router.navigate(['/cirugias']);
     });
   }
 }

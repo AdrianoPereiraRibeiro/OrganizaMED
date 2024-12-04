@@ -5,6 +5,7 @@ using System.Text;
 using OrganizaMED.Dominio.Compartilhado;
 using OrganizaMED.Dominio.ModuloMedico;
 
+
 namespace OrganizaMED.Dominio.ModuloCirugia
 {
     public class Cirugia : Entidade
@@ -14,15 +15,17 @@ namespace OrganizaMED.Dominio.ModuloCirugia
         public int Duracao { get; set; }
         public List<Medico> Medicos { get; set; }
 
-        public IRepositorioMedico RepositorioMedico;
 
-        public Cirugia() { }
-        public Cirugia(DateTime dataDeInicio, int duracao, List<Medico> medicos)
+
+        public Cirugia()
+        {
+            Medicos = new List<Medico>();}
+        public Cirugia(DateTime dataDeInicio, int duracao)
         {
             DataDeInicio = dataDeInicio;
             DataDeEncerramento = dataDeInicio.AddMinutes(Duracao);
             Duracao = duracao;
-            Medicos = medicos;
+            Medicos = new List<Medico>();
         }
 
         public void atualizarTermino()
@@ -30,14 +33,19 @@ namespace OrganizaMED.Dominio.ModuloCirugia
             DataDeEncerramento = DataDeInicio.AddMinutes(Duracao);
         }
 
-        public void prencherMedicos(String[] ids)
+        public void prencherMedicos(IEnumerable<Guid> ids,List<Medico> medicos)
         {
-            foreach (var m in RepositorioMedico.SelecionarTodosAsync().Result )
+            foreach (var m in medicos)
             {
-                if (m.Id.Equals(ids))
+                foreach (var id in ids)
                 {
-                    Medicos.Add(m);
+                    if (m.Id.Equals(id))
+                    {
+                        Medicos.Add(m);
+                    }
+
                 }
+                
             }
         }
     }

@@ -29,6 +29,18 @@
 
         <mat-card-footer class="d-flex justify-content-end gap-1 p-3 mt-auto">
           <a
+          mat-icon-button
+          data-cy="botaoVisualizar"
+          class="botao-visualizar"
+          matTooltip="Visualizar Médicos"
+          [routerLink]="['/cirugias', 'visualizar', item.id]"
+        >
+          <mat-icon>people</mat-icon>
+        </a>
+
+
+
+          <a
             mat-icon-button
             data-cy="botaoEditar"
             class="botao-editar"

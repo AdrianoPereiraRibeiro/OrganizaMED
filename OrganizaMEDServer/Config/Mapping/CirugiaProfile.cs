@@ -11,8 +11,10 @@ namespace OrganizaMEDServer.Config.Mapping
             CreateMap<Cirugia, ListarCirugiaViewModel>();
             CreateMap<Cirugia, VisualizarCirugiaViewModel>();
 
-            CreateMap<InserirCirugiaViewModel, Cirugia>();
-            CreateMap<EditarCirugiaViewModel, Cirugia>();
+            CreateMap<InserirCirugiaViewModel, Cirugia>().
+                ForMember(dest => dest.DataDeInicio, opt => opt.MapFrom(src => src.DataInicio)); ;
+            CreateMap<EditarCirugiaViewModel, Cirugia>().
+                ForMember(dest => dest.DataDeInicio, opt => opt.MapFrom(src => src.DataInicio)); ;
 
         }
 

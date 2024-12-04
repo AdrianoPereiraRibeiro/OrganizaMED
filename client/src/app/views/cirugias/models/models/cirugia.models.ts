@@ -8,7 +8,7 @@ export interface ListarCirugiasViewModel{
   export interface InserirCirugiaViewModel {
     dataInicio: string;
     duracao: number;
-    medicosId: string[];
+    medicosIds: string[];
   }
 
 
@@ -16,14 +16,14 @@ export interface ListarCirugiasViewModel{
     id: string;
     dataInicio: Date;
     duracao: number;
-    medicos: SelectListItem[];
+    medicosIds: string[];
     }
     export interface VisualizarCirugiaViewModel {
       id: string;
       dataInicio: string;
       dataEncerramento: string;
       duracao: number;
-      medicos: SelectListItem[];
+      medicosIds: string[];
     }
 
     export interface ListarMedicoViewModel {
@@ -34,13 +34,13 @@ export interface ListarCirugiasViewModel{
      export interface CirugiaExcluida{
       dataInicio: Date;
       duracao: number;
-      medicos: SelectListItem[];
+      medicosIds: string[];
         }
         export interface EditarCirugiaViewModel{
-          id: string;
+      id: string;
       dataInicio: Date;
       duracao: number;
-      medicos: SelectListItem[];
+      medicosIds: string[];
           }
           export interface SelectListItem {
              id: string;

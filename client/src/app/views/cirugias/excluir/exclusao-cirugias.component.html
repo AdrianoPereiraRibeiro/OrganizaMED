@@ -1,14 +1,14 @@
 <main class="container my-4">
   <div
-    *ngIf="consulta$ | async as consulta"
+    *ngIf="cirugia$ | async as Cirugia"
     class="row justify-content-center g-3 mt-2"
   >
     <div class="col col-lg-8 col-xxl-6">
-      <h1 class="fs-2">Exclusão de consulta</h1>
+      <h1 class="fs-2">Exclusão de cirugia</h1>
 
       <hr />
 
-      <p>Deseja realmente excluir a consulta"?</p>
+      <p>Deseja realmente excluir a cirugia?</p>
 
       <div class="row justify-content-end g-2 gap-1 mt-5">
         <button
@@ -25,7 +25,7 @@
           mat-stroked-button
           class="col-md-3"
           type="button"
-          routerLink="/consultas"
+          routerLink="/cirugias"
         >
           <mat-icon>keyboard_return</mat-icon>
           Voltar
