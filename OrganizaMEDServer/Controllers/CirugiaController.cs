@@ -4,6 +4,7 @@ using OrganizaMED.Aplicacao.ModuloCirugia;
 using OrganizaMED.Aplicacao.ModuloCirugia;
 using OrganizaMED.Aplicacao.ModuloMedico;
 using OrganizaMED.Dominio.ModuloCirugia;
+using OrganizaMED.Dominio.ModuloMedico;
 using OrganizaMEDServer.Views;
 using Serilog;
 
@@ -79,7 +80,7 @@ namespace OrganizaMEDServer.Controllers
         public async Task<IActionResult> Put(Guid id, EditarCirugiaViewModel CirugiaVm)
         {
             var selecaoCirugiasOriginal = await servicoCirugia.SelecionarPorIdAsync(id);
-
+            selecaoCirugiasOriginal.Value.Medicos = new List<Medico>();
             if (selecaoCirugiasOriginal.IsFailed)
             {
                 return NotFound(selecaoCirugiasOriginal.Errors);

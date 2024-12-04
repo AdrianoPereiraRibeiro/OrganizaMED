@@ -7,16 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 using OrganizaMED.Dominio.ModuloCirugia;
+using OrganizaMED.Dominio.ModuloConsulta;
 
 namespace OrganizaMED.Aplicacao.ModuloCirugia
 {
     public class ServiceCirugia
     {
         private readonly IRepositorioCirugia _repositorioCirugia;
+        private readonly IRepositorioMedico _repositorioMedico;
 
-        public ServiceCirugia(IRepositorioCirugia repositorioCirugia)
+        public ServiceCirugia(IRepositorioCirugia repositorioCirugia, IRepositorioMedico repositorioMedico)
         {
             _repositorioCirugia = repositorioCirugia;
+            _repositorioMedico = repositorioMedico;
         }
 
         public async Task<Result<Cirugia>> InserirAsync(Cirugia Cirugia)
@@ -30,6 +33,13 @@ namespace OrganizaMED.Aplicacao.ModuloCirugia
             {
                 var erros = resultadoValidacao.Errors.Select(failure => failure.ErrorMessage).ToList();
                 return Result.Fail(erros);
+            }
+
+            foreach (var medico in Cirugia.Medicos)
+            {
+                medico.Agenda.Add(Cirugia.DataDeInicio);
+                _repositorioMedico.Editar(medico);
+
             }
 
             await _repositorioCirugia.InserirAsync(Cirugia);
@@ -49,6 +59,14 @@ namespace OrganizaMED.Aplicacao.ModuloCirugia
                 var erros = resultadoValidacao.Errors.Select(failure => failure.ErrorMessage).ToList();
                 return Result.Fail(erros);
             }
+
+            foreach (var medico in Cirugia.Medicos)
+            {
+                medico.Agenda.Add(Cirugia.DataDeInicio);
+                _repositorioMedico.Editar(medico);
+
+            }
+           
 
             _repositorioCirugia.Editar(Cirugia);
 

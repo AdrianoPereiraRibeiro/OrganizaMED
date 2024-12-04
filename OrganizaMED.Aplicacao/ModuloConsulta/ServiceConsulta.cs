@@ -36,6 +36,10 @@ namespace OrganizaMED.Aplicacao.ModuloConsulta
                 var erros = resultadoValidacao.Errors.Select(failure => failure.ErrorMessage).ToList();
                 return Result.Fail(erros);
             }
+            Consulta.Medico.Agenda.Add(Consulta.DataDeInicio);
+            _repositorioMedico.Editar(Consulta.Medico);
+            
+
 
             await _repositorioConsulta.InserirAsync(Consulta);
 
@@ -54,7 +58,8 @@ namespace OrganizaMED.Aplicacao.ModuloConsulta
                 var erros = resultadoValidacao.Errors.Select(failure => failure.ErrorMessage).ToList();
                 return Result.Fail(erros);
             }
-
+            Consulta.Medico.Agenda.Add(Consulta.DataDeInicio);
+            _repositorioMedico.Editar(Consulta.Medico);
             _repositorioConsulta.Editar(Consulta);
 
             return Result.Ok(Consulta);
