@@ -27,7 +27,6 @@ cirugias: ListarCirugiasViewModel[];
 
 constructor(private cirugiaService : CirugiaService,
   private medicoService: MedicoService,
-  private datePipe: DatePipe
 ){
   this.cirugias = [];
 }

@@ -33,7 +33,7 @@ namespace OrganizaMED.Dominio.ModuloConsulta
             
             foreach (var c in agenda)
             {
-                if (c.Date >= consulta.DataDeInicio && c.Date <= consulta.DataDeEncerramento)
+                if (c <= consulta.DataDeInicio && c <= consulta.DataDeEncerramento)
                 {
                     return false;
                 }

@@ -66,6 +66,7 @@ export class VisualizarCirugiaComponent implements OnInit {
     });
   }
 
+
   carregarCirugia(): void {
     this.cirugiaService.selecionarPorId(this.id).subscribe((data) => {
       this.cirugia = data;
