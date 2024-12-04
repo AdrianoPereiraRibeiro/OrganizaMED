@@ -62,7 +62,8 @@ namespace OrganizaMEDServer.Controllers
         public async Task<IActionResult> Post(InserirCirugiaViewModel CirugiaVm)
         {
             var Cirugia = mapeador.Map<Cirugia>(CirugiaVm);
-
+            Cirugia.atualizarTermino();
+            Cirugia.prencherMedicos(CirugiaVm.Medicos);
             var resultado = await servicoCirugia.InserirAsync(Cirugia);
 
             if (resultado.IsFailed)
@@ -82,7 +83,7 @@ namespace OrganizaMEDServer.Controllers
             }
 
             var CirugiaEditada = mapeador.Map(CirugiaVm, selecaoCirugiasOriginal.Value);
-
+            CirugiaEditada.atualizarTermino();
             var edicaoResult = await servicoCirugia.EditarAsync(CirugiaEditada);
             if (edicaoResult.IsFailed)
             {

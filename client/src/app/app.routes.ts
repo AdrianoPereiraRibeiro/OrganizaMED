@@ -8,6 +8,8 @@ import { ListagemConsultasComponent } from './views/consultas/listar/listagem-co
 import { ExclusaoConsultaComponent } from './views/consultas/excluir/exclusao-consulta.component';
 import { CadastroconsultaComponent } from './views/consultas/cadastrar/cadastro-consulta.component';
 import { EditarConsultaComponent } from './views/consultas/editar/edicao-consulta.component';
+import { ListagemcirugiasComponent } from './views/cirugias/listar/listagem-cirugias.component';
+import { CadastroCirugiaComponent } from './views/cirugias/cadastrar/cadastro-cirugia.component';
 export const routes: Routes = [
    { path: '', redirectTo: 'dashboard',
      pathMatch: 'full' },
@@ -24,6 +26,13 @@ export const routes: Routes = [
 
       {path : 'consultas/cadastrar', component: CadastroconsultaComponent },
       {path : 'consultas/excluir/:id', component: ExclusaoConsultaComponent },
-      {path : 'consultas/editar/:id', component: EditarConsultaComponent }
+      {path : 'consultas/editar/:id', component: EditarConsultaComponent },
+
+      {path : `cirugias`, component: ListagemcirugiasComponent},
+
+      {path : 'cirugias/cadastrar', component: CadastroCirugiaComponent },
+      // {path : 'cirugias/excluir/:id', component: ExclusaoConsultaComponent },
+      // {path : 'cirugias/editar/:id', component: EditarConsultaComponent }
  ];
+
 

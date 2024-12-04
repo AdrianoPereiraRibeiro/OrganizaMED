@@ -14,7 +14,7 @@ namespace OrganizaMED.Dominio.ModuloCirugia
         public int Duracao { get; set; }
         public List<Medico> Medicos { get; set; }
 
-
+        public IRepositorioMedico RepositorioMedico;
 
         public Cirugia() { }
         public Cirugia(DateTime dataDeInicio, int duracao, List<Medico> medicos)
@@ -23,6 +23,22 @@ namespace OrganizaMED.Dominio.ModuloCirugia
             DataDeEncerramento = dataDeInicio.AddMinutes(Duracao);
             Duracao = duracao;
             Medicos = medicos;
+        }
+
+        public void atualizarTermino()
+        {
+            DataDeEncerramento = DataDeInicio.AddMinutes(Duracao);
+        }
+
+        public void prencherMedicos(Guid[] ids)
+        {
+            foreach (var m in RepositorioMedico.SelecionarTodosAsync().Result )
+            {
+                if (m.Id.Equals(ids))
+                {
+                    Medicos.Add(m);
+                }
+            }
         }
     }
 }
