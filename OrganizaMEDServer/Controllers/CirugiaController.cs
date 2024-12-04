@@ -63,7 +63,7 @@ namespace OrganizaMEDServer.Controllers
         {
             var Cirugia = mapeador.Map<Cirugia>(CirugiaVm);
             Cirugia.atualizarTermino();
-            Cirugia.prencherMedicos(CirugiaVm.Medicos);
+            Cirugia.prencherMedicos(CirugiaVm.MedicosIds);
             var resultado = await servicoCirugia.InserirAsync(Cirugia);
 
             if (resultado.IsFailed)

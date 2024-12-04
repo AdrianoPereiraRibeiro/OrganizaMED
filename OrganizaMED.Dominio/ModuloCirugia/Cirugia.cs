@@ -30,7 +30,7 @@ namespace OrganizaMED.Dominio.ModuloCirugia
             DataDeEncerramento = DataDeInicio.AddMinutes(Duracao);
         }
 
-        public void prencherMedicos(Guid[] ids)
+        public void prencherMedicos(String[] ids)
         {
             foreach (var m in RepositorioMedico.SelecionarTodosAsync().Result )
             {

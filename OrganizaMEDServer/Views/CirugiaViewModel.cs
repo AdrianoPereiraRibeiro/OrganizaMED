@@ -6,7 +6,7 @@ namespace OrganizaMEDServer.Views
     {
         public required string DataInicio { get; set; }
         public required int Duracao { get; set; }
-        public Guid[] Medicos { get; set; }
+        public string[] MedicosIds { get; set; }
     }
 
     public class SelectListItem
